@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ThemeToggleButton from "../components/partials/ThemeToggleButton";
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer/Footer";
 import ScrollTopButton from "../components/ScrollTopButton/ScrollTopButton";
 
@@ -12,6 +12,7 @@ export default function Layout() {
     const [activeSection, setActiveSection] = useState('')
 
     const location = useLocation()
+    const navigate = useNavigate()
 
     useEffect(() => {
         const currentTheme = localStorage.getItem('theme');
@@ -65,6 +66,24 @@ export default function Layout() {
         setActiveMenu(!activeMenu)
     }
 
+    const scrollToSection = (sectionId) => {
+        if (location.pathname !== '/') {
+            navigate('/');
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+        setActiveMenu(false);
+    };
+
     return (
         <>
             <header>
@@ -72,29 +91,41 @@ export default function Layout() {
                     <div className="logo" dangerouslySetInnerHTML={{ __html: "&lt;Fenohery /&gt;" }}/>
                     <ul className={`nav-links ${activeMenu ? 'active' : ''}`}>
                         <li>
-                            <a 
-                                href="#home" 
+                            <Link 
+                                onClick={() => scrollToSection('home')}
                                 className={activeSection === 'home' ? 'active' : ''}>
                                     Accueil
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a 
-                                href="#about" 
+                            <Link 
+                                onClick={() => scrollToSection('about')}
                                 className={activeSection === 'about' ? 'active' : ''}>
                                     A-propos
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#services" className={activeSection === 'technologies' ? 'active' : ''}>Compétences</a>
-                            </li>
-                        <li>
-                            <a href="#portfolio" className={activeSection === 'projects' || location.pathname.includes('/projects') ? 'active' : ''}>Projets</a>
+                            <Link
+                                onClick={() => scrollToSection('technologies')} 
+                                className={activeSection === 'technologies' ? 'active' : ''}>
+                                Compétences
+                            </Link>
                         </li>
                         <li>
-                            <a href="#contact" className={activeSection === 'contact' ? 'active' : ''}>Contactez Moi</a>
+                            <Link 
+                                onClick={() => scrollToSection('projects')} 
+                                 className={activeSection === 'projects' || location.pathname.includes('/projects') ? 'active' : ''}>
+                                Projets
+                            </Link>
                         </li>
-                    </ul>
+                        <li>
+                            <Link 
+                                onClick={() => scrollToSection('contact')} 
+                                className={activeSection === 'contact' ? 'active' : ''}>
+                                    Contactez Moi
+                            </Link>
+                        </li>
+                    </ul> 
                     <div className="nav-buttons">
                         <ThemeToggleButton themeToggle={themeToggle} />
                     </div>

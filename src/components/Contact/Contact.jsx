@@ -75,7 +75,7 @@ const Contact = () => {
                   <input 
                     type="text" 
                     name="name" 
-                    placeholder="YOUR NAME"
+                    placeholder="VOTRE  NAME"
                     value={msg.name}
                     onChange={(e) => setMsg({...msg, name: e.target.value})}
                     className={errors.name ? 'error' : ''}
@@ -88,7 +88,7 @@ const Contact = () => {
                     value={msg.email}
                     type="text" 
                     name="email" 
-                    placeholder="YOUR EMAIL" 
+                    placeholder="VOTRE EMAIL" 
                     className={errors.email ? 'error' : ''}
                   />
                   {errors.email && <span className="error-message">{errors.email}</span>}
@@ -101,7 +101,7 @@ const Contact = () => {
                   value={msg.subject}
                   type="text" 
                   name="subject" 
-                  placeholder="SUBJECTS" 
+                  placeholder="OBJET" 
                   className={errors.subject ? 'error' : ''}
                 />
                 {errors.subject && <span className="error-message">{errors.subject}</span>}
@@ -117,7 +117,7 @@ const Contact = () => {
                 {errors.content && <span className="error-message">{errors.content}</span>}
               </div>
               <div className="send">
-                <button type="submit" className="send-btn">SEND MESSAGE</button>
+                <button type="submit" className="send-btn">ENVOYER VOTRE MESSAGE</button>
               </div>
             </form>
           </div>

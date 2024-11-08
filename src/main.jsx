@@ -9,6 +9,7 @@ import Home from "./pages/Home";
 import FichePaie from "./pages/FichePaie/FichePaie";
 import Layout from "./layout/Layout";
 import StudentManager from "./pages/StudentManager/StudentManager";
+import OTelecom from "./pages/OTelecom/OTelecom";
 
 
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/projects/student-manager",
         element: <StudentManager />,
+      },
+      {
+        path: "/projects/o-telecom",
+        element: <OTelecom />,
       },
     ]
 

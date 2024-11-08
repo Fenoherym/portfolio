@@ -406,28 +406,63 @@ body.light-mode .hero::after {
   color: var(--accent-color);
 }
 
-/* .projects .card {
-  width: 350px;
-  height: 450px;
-  background-color: var(--accent-color-transparent);
-  cursor: pointer;
-  color: var(--bg-color);
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
 
-.projects .card img {
-    width: 100%;
-    height: 350px;
-    object-fit: cover;
-    object-position: center;
+@keyframes slideUp {
+  from {
+      transform: translateY(20px);
+      opacity: 0;
+  }
+  to {
+      transform: translateY(0);
+      opacity: 1;
+  }
 }
 
-.projects .card h3 {
-  margin: 0;
-  padding: 0;
-} */
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
 
+.tech-item-wrapper {
+  animation: slideUp 0.5s ease-out forwards;
+  opacity: 0;
+}
 
+.tech-item-wrapper:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
 
+.greeting {
+  color: var(--accent-color);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px; /* Espace entre le texte qui s'écrit et le texte statique */
+}
 
+.typewriter {
+  display: inline-block;
+  border-right: 2px solid;
+  animation: blink 0.75s step-end infinite;
+  min-width: 8ch; /* Ajustez cette valeur selon le mot le plus long */
+  text-align: right;
+}
 
+.static-text {
+  white-space: nowrap;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
+}
 

@@ -2,12 +2,13 @@ import ProjectCard from "./partials/ProjectCard";
 import boxy from './../assets/img/boxy.png';
 import paie_app from './../assets/img/paie-app.png';
 import stm0 from './../assets/img/stm0.png'
+import ecom from './../assets/img/ecom1.png'
 
 export default function Project() {
   return (
-    <section id="projects" className='projects'> 
-       <h2>Selected projects</h2>  
-       <div className="cards">
+    <section id="projects" className='projects animate-fade-in'> 
+       <h2>Projets selectionnés</h2>  
+       <div className="cards animate-slide-up">
           <ProjectCard 
              image={boxy}
              title="BOXY GENERATOR" 
@@ -25,9 +26,16 @@ export default function Project() {
 
           <ProjectCard 
              image={stm0}
-             title="Gestion des étudiants" 
+             title="GESTION ETUDIANTS" 
              description="Application de Gestion de étudiants PHP"
              link="/projects/student-manager"
+          />
+
+          <ProjectCard 
+             image={ecom}
+             title="O-TELECOM SHOP" 
+             description="Site E-commerce de vente d'outils télécom"
+             link="/projects/o-telecom"
           />
           
         </div>     

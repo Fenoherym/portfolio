@@ -44,9 +44,15 @@ export default function Techno() {
     return (
         <section id="technologies" className="technologies">
             <h2>Technologies</h2>
-            <div className="tech-grid">
+            <div className="tech-grid animate-fade-in">
                 {techs.map(({name, logo, alt_img}, index) => (
-                    <TechItem name={name} logo={logo} alt_img={alt_img} key={index} />
+                    <div 
+                        className="tech-item-wrapper animate-slide-up" 
+                        style={{ animationDelay: `${index * 0.2}s` }}
+                        key={index}
+                    >
+                        <TechItem name={name} logo={logo} alt_img={alt_img} />
+                    </div>
                 ))}               
             </div>
         </section>
