@@ -3,6 +3,7 @@ import * as ReactDOM from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
+  Navigate,
 } from "react-router-dom";
 import "./index.css";
 import Home from "./pages/Home";
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/projects/o-telecom",
         element: <OTelecom />,
+      },
+      {
+        path: "*",
+        element: <Navigate to="/" replace />,
       },
     ]
 

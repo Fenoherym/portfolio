@@ -63,7 +63,7 @@ const Contact = () => {
       <div className="contact-container">
         <div className="contact-content">
           <div className="contact-info">
-            <h3>GET IN TOUCH</h3>
+            <h3>ENTRER EN CONTACT</h3>
             <p><i className="fa-solid fa-location-dot"></i> Antsirabe 110, Madagascar</p>
             <p><i className="fa-solid fa-phone"></i> +261 34 13 075 93</p>
             <p><i className="fa-solid fa-envelope"></i> fenoherymanjaka10@gmail.com</p>

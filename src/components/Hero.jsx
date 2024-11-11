@@ -48,7 +48,7 @@ export default function Hero() {
         <section id="home" className="hero">
             <div className="hero-content">
                 <p className="greeting typewriter">{displayText}</p>
-                <h1>Fenohery Rakotoniaia</h1>
+                <h1>Fenohery Rakotoniaina</h1>
                 <p className="job-title">Développeur Laravel & Vue.js | React 👨‍💻</p>
                 <p className="description">
                     Passionné par la création de solutions numériques innovantes, je suis spécialisé en développement web et mobile avec Laravel, Vue.js et React. 
