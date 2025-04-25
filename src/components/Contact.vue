@@ -1,15 +1,8 @@
 <script setup lang="ts">
-import axios from 'axios'
+import axiosClient from '../axios/axios'
 import { ref, nextTick } from 'vue'
 
-const api = axios.create({
-  baseURL: 'http://localhost:8000',
-  withCredentials: true,
-  headers: {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json'
-  }
-})
+
 
 const form = ref({
   name: '',
@@ -26,6 +19,8 @@ const errors = ref({
 const showMessage = ref(false)
 const showAnimation = ref<null | boolean>(null)
 const isLoading = ref(false)
+const isSuccess = ref(false)
+const messageOnSubmitForm = ref('')
 
 const validateForm = () => {
   let isValid = true
@@ -65,7 +60,7 @@ const handleSubmit = async () => {
   isLoading.value = true
  
   try {
-    const response = await api.post('/api/contact', {
+    const response = await axiosClient.post('/api/contact', {
       name: form.value.name,
       email: form.value.email,
       message: form.value.message,
@@ -77,8 +72,34 @@ const handleSubmit = async () => {
         email: '',
         message: ''
       }
+
+      isSuccess.value = true
       showMessage.value = true
+      messageOnSubmitForm.value = 'Votre message a été envoyé avec succès'
+
       nextTick(() => {
+        setTimeout(() => {
+          showAnimation.value = true
+        }, 50)
+      })
+
+      setTimeout(() => {
+        showAnimation.value = false
+        setTimeout(() => {
+          showMessage.value = false
+          showAnimation.value = null
+          isSuccess.value = false
+          messageOnSubmitForm.value = ''
+        }, 300)
+      }, 3000)
+      
+    }
+  } catch (error) {
+     showMessage.value = true
+     isSuccess.value = false
+     messageOnSubmitForm.value = 'Une erreur s\'est produite lors de l\'envoi du message. Veuillez réessayer.'
+
+     nextTick(() => {
         setTimeout(() => {
           showAnimation.value = true
         }, 50)
@@ -91,13 +112,11 @@ const handleSubmit = async () => {
           showAnimation.value = null
         }, 300)
       }, 3000)
-      console.log(response)
-    }
-  } catch (error) {
-    console.log(error)
+
   }
   finally {
     isLoading.value = false
+    
   }
 }
 </script>
@@ -130,7 +149,13 @@ const handleSubmit = async () => {
               <svg class="w-5 h-5 text-blue-600 dark:text-blue-500 rotate-45" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9 17 8 2L9 1 1 19l8-2Zm0 0V9"/>
               </svg>
-              <div class="ps-4 text-sm font-normal">Votre message a été envoyé avec succès</div>
+              <div  
+                :class="[
+                    'ps-4 text-sm font-normal', 
+                    isSuccess ? 'text-green-600 dark:text-green-500' : 'text-red-600 dark:text-red-500'
+                ]"
+                
+              >{{ messageOnSubmitForm }}</div>
           </div>
       </div>
       <!-- Contact Form -->
