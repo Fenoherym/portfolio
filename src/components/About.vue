@@ -17,7 +17,7 @@ onMounted(() => {
 })
 
 const stats = [
-  { label: 'Years Experience', value: '4+' },
+  { label: 'Years Experience', value: '2+' },
   { label: 'Projects Completed', value: '50+' },
   { label: 'Satisfied Clients', value: '30+' }
 ]
