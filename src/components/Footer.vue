@@ -1,5 +1,13 @@
 <script setup lang="ts">
 const currentYear = new Date().getFullYear()
+const navItems = [
+  { label: 'À propos', section: 'about' },
+  { label: 'Compétences', section: 'skills' },
+  { label: 'Projets', section: 'projects' },
+  { label: 'Contact', section: 'contact' },
+];
+
+
 </script>
 
 <template>
@@ -8,18 +16,18 @@ const currentYear = new Date().getFullYear()
       <div class="flex flex-col items-center">
         <!-- Logo -->
         <div class="text-2xl font-bold text-indigo-600 dark:text-indigo-400 mb-4">
-          TR.
+          FR.
         </div>
 
         <!-- Navigation -->
         <nav class="mb-6">
           <ul class="flex space-x-6">
-            <li v-for="item in ['About', 'Skills', 'Projects', 'Contact']" :key="item">
+            <li v-for="item in navItems" :key="item.section">
               <a 
-                :href="`#${item.toLowerCase()}`"
+                :href="`#${item.section}`"
                 class="text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
               >
-                {{ item }}
+                {{ item.label }}
               </a>
             </li>
           </ul>
@@ -40,7 +48,7 @@ const currentYear = new Date().getFullYear()
 
         <!-- Copyright -->
         <div class="text-sm text-slate-500 dark:text-slate-400">
-          © {{ currentYear }} Trae Razaf. All rights reserved.
+          © {{ currentYear }} Fenohery Manjaka. All rights reserved.
         </div>
       </div>
     </div>

@@ -18,6 +18,13 @@ const toggleMenu = () => {
 
 const activeSection = ref('about')
 
+const navItems = [
+  { label: 'À propos', section: 'about' },
+  { label: 'Compétences', section: 'skills' },
+  { label: 'Projets', section: 'projects' },
+  { label: 'Contact', section: 'contact' },
+];
+
 onMounted(() => {
   window.addEventListener('scroll', () => {
     isScrolled.value = window.scrollY > 50
@@ -57,7 +64,7 @@ const scrollToSection = (sectionId: string) => {
       <div class="flex items-center justify-between">
         <!-- Logo -->
         <a href="#" class="text-2xl font-bold text-green-600 dark:text-green-400">
-          Fenohery M.
+          FM.
         </a>
 
         <!-- Mobile Menu Button -->
@@ -104,16 +111,16 @@ const scrollToSection = (sectionId: string) => {
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">
           <a 
-            v-for="item in ['About', 'Skills', 'Projects', 'Contact']" 
-            :key="item"
-            @click.prevent="scrollToSection(item.toLowerCase())"
+            v-for="item in navItems" 
+            :key="item.section"
+            @click.prevent="scrollToSection(item.section)"
             class="relative text-slate-600 dark:text-slate-300 hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer"
-            :class="{ 'text-green-600 dark:text-green-400': activeSection === item.toLowerCase() }"
+            :class="{ 'text-green-600 dark:text-green-400': activeSection === item.section }"
           >
-            <span>{{ item }}</span>
+            <span>{{ item.label }}</span>
             <span 
               class="absolute bottom-0 left-0 h-0.5 bg-green-600 dark:bg-green-400 transition-all duration-300"
-              :class="[activeSection === item.toLowerCase() ? 'w-full' : 'w-0']"
+              :class="[activeSection === item.section ? 'w-full' : 'w-0']"
             ></span>
           </a>
 

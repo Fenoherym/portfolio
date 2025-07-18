@@ -127,10 +127,10 @@ const handleSubmit = async () => {
       <!-- Section Header -->
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-          Get In Touch
+            Contactez-moi
         </h2>
         <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-          Have a project in mind? Let's work together to create something amazing.
+            Vous avez un projet en tête ? Travaillons ensemble pour créer quelque chose d'extraordinaire.
         </p>       
         
         
@@ -213,7 +213,7 @@ const handleSubmit = async () => {
                 </svg>
                 Sending...
           </span>
-          <span v-else>Send Message</span>
+          <span v-else>Envoyer votre message</span>
           </button>
         </form>
       </div>

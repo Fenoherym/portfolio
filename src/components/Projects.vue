@@ -72,10 +72,10 @@ const animateCards = () => {
       <!-- Section Header -->
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 text-slate-900 dark:text-white">
-          Featured Projects
+           Projets sélectionnés
         </h2>
         <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto">
-          Here are some of my recent works that showcase my skills and experience
+          Voici quelques-unes de mes réalisations qui mettent en valeur mes compétences et mon expérience.
         </p>
         <p v-if="error !== ''" class="mt-4 text-red-500 dark:text-red-400">{{ error }}</p>
         <div class="mt-4 flex justify-center items-center p-10" v-if="projects.length === 0 && error === ''">

@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 
 const scrollToAbout = () => {
-  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })
+  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
 }
 
 const text = "Bonjour, Je suis"
@@ -60,8 +60,7 @@ onMounted(() => {
 
         <!-- Description -->
         <p class="animate-on-mount opacity-0 max-w-2xl mx-auto text-slate-600 dark:text-slate-300">
-          Crafting digital experiences with clean code and creative design. 
-          Specialized in building modern web applications that make a difference.
+            Passionné par le développement web, je conçois des applications modernes, performantes et intuitives en combinant la puissance de Laravel et la réactivité de Vue.js
         </p>
 
         <!-- CTA Buttons -->
@@ -70,7 +69,7 @@ onMounted(() => {
             @click="scrollToAbout"
             class="group px-8 py-3 bg-[#42b883] text-white rounded-full hover:bg-[#3aa876] transition-all duration-300"
           >
-            Explore My Work
+            Explorez mon travail
             <span class="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">
               →
             </span>
@@ -79,7 +78,7 @@ onMounted(() => {
             href="#contact"
             class="px-8 py-3 border-2 border-[#42b883] dark:border-[#a3e4d7] text-[#42b883] dark:text-[#a3e4d7] rounded-full hover:bg-[#42b883]/5 dark:hover:bg-slate-800 transition-all duration-300"
           >
-            Get in Touch
+            Contactez-moi
           </a>
         </div>
       </div>
